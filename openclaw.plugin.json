@@ -1,6 +1,6 @@
 {
-  "id": "tencent-test",
-  "name": "Tencent Cloud Test",
+  "id": "tencent",
+  "name": "Tencent Cloud",
   "activation": {
     "onStartup": false
   },
