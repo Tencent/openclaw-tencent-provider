@@ -46,11 +46,11 @@ Environment (.env):
   CLAWHUB_TOKEN
       Required for real ClawHub publish. Dry-run can use an existing login.
   CLAWHUB_OWNER
-      ClawHub owner handle. Default: hxy91819.
+      ClawHub owner handle. Default: Tencent.
   CLAWHUB_NAME
       ClawHub package name. Default: package.json name.
   CLAWHUB_SOURCE_REPO
-      Source repo metadata, e.g. hxy91819/openclaw-tencent-provider.
+      Source repo metadata, e.g. Tencent/openclaw-tencent-provider.
   CLAWHUB_SOURCE_REF
       Source ref metadata. Default: current git branch.
   CLAWHUB_SOURCE_COMMIT
@@ -204,7 +204,7 @@ publish_clawhub() {
   version="${PUBLISH_VERSION:-$(json_field version)}"
   source_ref="${CLAWHUB_SOURCE_REF:-$(git branch --show-current)}"
   source_commit="${CLAWHUB_SOURCE_COMMIT:-$(git rev-parse HEAD)}"
-  owner="${CLAWHUB_OWNER:-hxy91819}"
+  owner="${CLAWHUB_OWNER:-Tencent}"
   changelog="${CLAWHUB_CHANGELOG:-Release $package_name@$version.}"
 
   [ -n "$package_name" ] || die "Missing ClawHub package name."
