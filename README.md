@@ -1,8 +1,9 @@
 # Tencent Cloud OpenClaw provider
 
 Official OpenClaw provider plugin for Tencent Cloud. It registers the
-`tencent-tokenhub` provider and its models (e.g. `tencent-tokenhub/hy3`)
-through the public OpenClaw plugin SDK, using plugin runtime id `tencent`.
+`tencent-tokenhub` and `tencent-tokenplan` providers and their models
+(e.g. `tencent-tokenhub/hy3`, `tencent-tokenplan/hy3`) through the public
+OpenClaw plugin SDK, using plugin runtime id `tencent`.
 
 ## Install
 
@@ -12,20 +13,28 @@ openclaw plugins install clawhub:openclaw-tencent-provider
 
 ## Configuration
 
-Set the Tencent TokenHub API key before use:
+Set the Tencent API keys before use:
 
 ```sh
-export TOKENHUB_API_KEY=<your-key>
+export TOKENHUB_API_KEY=<your-tokenhub-key>
+export TOKENPLAN_API_KEY=<your-tokenplan-key>
 ```
 
-Or provide it during onboarding with `--tokenhub-api-key <key>`.
+Or provide them during onboarding with `--tokenhub-api-key <key>` and
+`--tokenplan-api-key <key>`.
 
 ## Providers and models
 
 - Provider id: `tencent-tokenhub`
   - Base URL: `https://tokenhub.tencentmaas.com/v1`
   - API: `openai-completions`
-- Model: `tencent-tokenhub/hy3` (256K context window, reasoning enabled)
+  - Models:
+    - `tencent-tokenhub/hy3` (256K context window, reasoning enabled)
+    - `tencent-tokenhub/hy3-preview` (256K context window, reasoning enabled)
+- Provider id: `tencent-tokenplan`
+  - Base URL: `https://api.lkeap.cloud.tencent.com/plan/v3`
+  - API: `openai-completions`
+  - Model: `tencent-tokenplan/hy3` (256K context window, reasoning enabled)
 
 ## Release
 

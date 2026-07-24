@@ -8,7 +8,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./api.js": "./dist/api.js",
-    "./provider-discovery.js": "./dist/provider-discovery.js"
+    "./provider-discovery.js": "./dist/provider-discovery.js",
+    "./setup-api.js": "./dist/setup-api.js"
   },
   "files": [
     "dist/",
@@ -38,6 +39,7 @@
     "extensions": [
       "./dist/index.js"
     ],
+    "setupEntry": "./dist/setup-api.js",
     "install": {
       "clawhubSpec": "clawhub:openclaw-tencent-provider",
       "npmSpec": "openclaw-tencent-provider",
