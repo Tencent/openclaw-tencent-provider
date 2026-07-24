@@ -57,5 +57,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/openclaw-tencent-provider.git"
+  },
+  "homepage": "https://github.com/Tencent/openclaw-tencent-provider#readme",
+  "bugs": {
+    "url": "https://github.com/Tencent/openclaw-tencent-provider/issues"
   }
 }
