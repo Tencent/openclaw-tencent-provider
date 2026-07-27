@@ -11,7 +11,7 @@ set -euo pipefail
 #   --env-file <path> selects the dotenv file. Default: .env when present.
 #
 # Outputs:
-#   Prints a release summary and writes temporary auth config only under a
+#   Prints a release summary and writes temporary npm auth config only under a
 #   throwaway temp directory. Tokens are never printed.
 #
 # Decision:
@@ -72,7 +72,7 @@ Environment (.env):
 
 Outputs:
   - stdout: target, mode, package, version, source metadata, and publish result.
-  - temp files: isolated ClawHub config and npm userconfig under a temp dir.
+  - temp files: isolated npm userconfig under a temp dir.
   - exit code 0: requested dry-run/publish completed.
   - non-zero: validation, auth, build, or publish failed.
 
@@ -175,24 +175,21 @@ console.log(`INFO: ClawHub validate pass warnings=${warnings} issues=${issues}`)
 }
 
 setup_clawhub_auth() {
-  [ -n "${CLAWHUB_TOKEN:-}" ] || return 0
-  export CLAWHUB_CONFIG_PATH="$tmp_dir/clawhub/config.json"
-  mkdir -p "$(dirname "$CLAWHUB_CONFIG_PATH")"
-  local registry="${CLAWHUB_REGISTRY:-}"
-  if [ -z "$registry" ]; then
-    node -e '
-const fs = require("node:fs");
-const token = process.env.CLAWHUB_TOKEN;
-fs.writeFileSync(process.env.CLAWHUB_CONFIG_PATH, JSON.stringify({ token }, null, 2) + "\n", { mode: 0o600 });
-'
-  else
-    node -e '
-const fs = require("node:fs");
-const token = process.env.CLAWHUB_TOKEN;
-const registry = process.env.CLAWHUB_REGISTRY;
-fs.writeFileSync(process.env.CLAWHUB_CONFIG_PATH, JSON.stringify({ token, registry }, null, 2) + "\n", { mode: 0o600 });
-'
+  # Prefer an existing `clawhub login` session. This CLI (v0.23.x) stores
+  # credentials in its own default config; pointing CLAWHUB_CONFIG_PATH at a
+  # hand-written {token} file is NOT understood by this CLI and actually masks
+  # the real login, causing "Not logged in" on publish. So we never set
+  # CLAWHUB_CONFIG_PATH here.
+  if clawhub whoami >/dev/null 2>&1; then
+    info "Using existing clawhub login ($(clawhub whoami 2>/dev/null | tr -d '[:space:]'))"
+    return 0
   fi
+  # No active session: fall back to a real CLI login using the token from .env.
+  [ -n "${CLAWHUB_TOKEN:-}" ] || die "Not logged in and no CLAWHUB_TOKEN in .env. Run: clawhub login"
+  info "No active session; logging in with CLAWHUB_TOKEN from .env"
+  clawhub login --token "$CLAWHUB_TOKEN" --label "release script" >/dev/null 2>&1 \
+    || die "clawhub login --token failed. Run: clawhub login"
+  clawhub whoami >/dev/null 2>&1 || die "Login did not take effect. Run: clawhub login"
 }
 
 publish_clawhub() {

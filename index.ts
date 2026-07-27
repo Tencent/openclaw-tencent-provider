@@ -45,7 +45,7 @@ function createTokenHubApiKeyAuthMethod() {
       choiceId: "tokenhub-api-key",
       choiceLabel: "Tencent TokenHub",
       groupId: "tencent",
-      groupLabel: "Tencent Cloud",
+      groupLabel: "Tencent",
       groupHint: "Tencent TokenHub",
     },
   });
@@ -53,8 +53,8 @@ function createTokenHubApiKeyAuthMethod() {
 
 export default definePluginEntry({
   id: "tencent",
-  name: "Tencent Cloud Provider",
-  description: "Bundled Tencent Cloud provider plugin (TokenHub, TokenPlan)",
+  name: "Tencent Provider",
+  description: "Bundled Tencent provider plugin (TokenHub, TokenPlan)",
   register(api) {
     api.registerProvider({
       id: TOKENHUB_PROVIDER_ID,
@@ -98,7 +98,7 @@ export default definePluginEntry({
             choiceId: "tokenplan-api-key",
             choiceLabel: "Tencent TokenPlan",
             groupId: "tencent",
-            groupLabel: "Tencent Cloud",
+            groupLabel: "Tencent",
             groupHint: "Tencent TokenPlan",
           },
         }),

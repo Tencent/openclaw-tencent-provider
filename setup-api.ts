@@ -4,8 +4,8 @@ import { migrateTencentTokenHubModelDefaults } from "./config-compat.js";
 
 export default definePluginEntry({
   id: "tencent",
-  name: "Tencent Cloud Provider Setup",
-  description: "Lightweight Tencent Cloud provider setup hooks",
+  name: "Tencent Provider Setup",
+  description: "Lightweight Tencent provider setup hooks",
   register(api) {
     api.registerConfigMigration((config) => migrateTencentTokenHubModelDefaults(config));
   },

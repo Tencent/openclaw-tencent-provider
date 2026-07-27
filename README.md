@@ -1,6 +1,6 @@
-# Tencent Cloud OpenClaw provider
+# Tencent OpenClaw provider
 
-Official OpenClaw provider plugin for Tencent Cloud. It registers the
+Official OpenClaw provider plugin for Tencent. It registers the
 `tencent-tokenhub` and `tencent-tokenplan` providers and their models
 (e.g. `tencent-tokenhub/hy3`, `tencent-tokenplan/hy3`) through the public
 OpenClaw plugin SDK, using plugin runtime id `tencent`.
