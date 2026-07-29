@@ -1,6 +1,6 @@
 {
   "name": "openclaw-tencent-provider",
-  "version": "2026.7.29-1",
+  "version": "2026.7.29",
   "description": "OpenClaw Tencent Cloud provider plugin (TokenHub + Token Plan)",
   "type": "module",
   "license": "MIT-0",
@@ -18,20 +18,17 @@
   ],
   "scripts": {
     "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.json",
-    "test": "vitest run",
     "prepack": "npm run build",
     "release:dry-run": "scripts/publish.sh",
     "release:clawhub": "scripts/publish.sh --target clawhub --publish",
     "release:npm": "scripts/publish.sh --target npm --publish"
   },
   "devDependencies": {
-    "@types/node": "^24.13.3",
-    "openclaw": "2026.7.2-beta.5",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.10"
+    "openclaw": "2026.6.10",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.7.2-beta.5"
+    "openclaw": ">=2026.6.10"
   },
   "peerDependenciesMeta": {
     "openclaw": {
@@ -47,14 +44,14 @@
       "clawhubSpec": "clawhub:openclaw-tencent-provider",
       "npmSpec": "openclaw-tencent-provider",
       "defaultChoice": "clawhub",
-      "minHostVersion": ">=2026.7.2-beta.5"
+      "minHostVersion": ">=2026.6.10"
     },
     "compat": {
-      "pluginApi": ">=2026.7.2-beta.5"
+      "pluginApi": ">=2026.5.28"
     },
     "build": {
-      "openclawVersion": "2026.7.2-beta.5",
-      "pluginSdkVersion": "2026.7.2-beta.5"
+      "openclawVersion": "2026.6.10",
+      "pluginSdkVersion": "2026.6.10"
     }
   },
   "repository": {
