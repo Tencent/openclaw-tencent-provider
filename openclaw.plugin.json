@@ -1,6 +1,6 @@
 {
   "id": "tencent",
-  "name": "Tencent",
+  "name": "Tencent Cloud",
   "activation": {
     "onStartup": false
   },
@@ -122,7 +122,7 @@
       "appGuidedSecret": true,
       "choiceLabel": "Tencent TokenHub",
       "groupId": "tencent",
-      "groupLabel": "Tencent",
+      "groupLabel": "Tencent Cloud",
       "groupHint": "Tencent TokenHub",
       "optionKey": "tokenhubApiKey",
       "cliFlag": "--tokenhub-api-key",
@@ -136,7 +136,7 @@
       "appGuidedSecret": true,
       "choiceLabel": "Tencent TokenPlan",
       "groupId": "tencent",
-      "groupLabel": "Tencent",
+      "groupLabel": "Tencent Cloud",
       "groupHint": "Tencent TokenPlan",
       "optionKey": "tokenplanApiKey",
       "cliFlag": "--tokenplan-api-key",
