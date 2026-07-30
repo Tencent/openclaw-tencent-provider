@@ -1,6 +1,6 @@
 {
   "name": "openclaw-tencent-provider",
-  "version": "2026.7.29",
+  "version": "2026.7.30",
   "description": "OpenClaw Tencent Cloud provider plugin (TokenHub + Token Plan)",
   "type": "module",
   "license": "MIT-0",
