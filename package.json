@@ -41,7 +41,7 @@
     ],
     "setupEntry": "./dist/setup-api.js",
     "install": {
-      "clawhubSpec": "clawhub:openclaw-tencent-provider",
+      "clawhubSpec": "clawhub:@tencent/openclaw-tencent-provider",
       "npmSpec": "openclaw-tencent-provider",
       "defaultChoice": "clawhub",
       "minHostVersion": ">=2026.6.10"

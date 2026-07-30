@@ -8,7 +8,7 @@ OpenClaw plugin SDK, using plugin runtime id `tencent`.
 ## Install
 
 ```sh
-openclaw plugins install clawhub:openclaw-tencent-provider
+openclaw plugins install clawhub:@tencent/openclaw-tencent-provider
 ```
 
 ## Configuration
