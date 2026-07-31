@@ -6,10 +6,7 @@
   },
   "enabledByDefault": true,
   "providerCatalogEntry": "./dist/provider-discovery.js",
-  "providers": [
-    "tencent-tokenhub",
-    "tencent-tokenplan"
-  ],
+  "providers": ["tencent-tokenhub", "tencent-tokenplan"],
   "modelCatalog": {
     "providers": {
       "tencent-tokenhub": {
@@ -23,9 +20,7 @@
             "status": "deprecated",
             "replacedBy": "hy3",
             "reasoning": true,
-            "input": [
-              "text"
-            ],
+            "input": ["text"],
             "contextWindow": 256000,
             "maxTokens": 128000,
             "cost": {
@@ -39,49 +34,35 @@
                   "output": 0.587,
                   "cacheRead": 0.059,
                   "cacheWrite": 0,
-                  "range": [
-                    0,
-                    16000
-                  ]
+                  "range": [0, 16000]
                 },
                 {
                   "input": 0.235,
                   "output": 0.939,
                   "cacheRead": 0.088,
                   "cacheWrite": 0,
-                  "range": [
-                    16000,
-                    32000
-                  ]
+                  "range": [16000, 32000]
                 },
                 {
                   "input": 0.293,
                   "output": 1.173,
                   "cacheRead": 0.117,
                   "cacheWrite": 0,
-                  "range": [
-                    32000
-                  ]
+                  "range": [32000]
                 }
               ]
             },
             "compat": {
               "supportsUsageInStreaming": true,
               "supportsReasoningEffort": true,
-              "supportedReasoningEfforts": [
-                "none",
-                "low",
-                "high"
-              ]
+              "supportedReasoningEfforts": ["none", "low", "high"]
             }
           },
           {
             "id": "hy3",
             "name": "Hy3 (TokenHub)",
             "reasoning": true,
-            "input": [
-              "text"
-            ],
+            "input": ["text"],
             "contextWindow": 256000,
             "maxTokens": 128000,
             "cost": {
@@ -93,11 +74,7 @@
             "compat": {
               "supportsUsageInStreaming": true,
               "supportsReasoningEffort": true,
-              "supportedReasoningEfforts": [
-                "none",
-                "low",
-                "high"
-              ]
+              "supportedReasoningEfforts": ["none", "low", "high"]
             }
           }
         ]
@@ -111,42 +88,32 @@
             "id": "hy3",
             "name": "Hy3 (TokenPlan)",
             "reasoning": true,
-            "input": [
-              "text"
-            ],
+            "input": ["text"],
             "contextWindow": 256000,
             "maxTokens": 128000,
             "compat": {
               "supportsUsageInStreaming": true,
               "supportsReasoningEffort": true,
-              "supportedReasoningEfforts": [
-                "none",
-                "low",
-                "high"
-              ]
+              "supportedReasoningEfforts": ["none", "low", "high"]
             }
           }
         ]
       }
     },
     "discovery": {
-      "tencent-tokenhub": "static",
-      "tencent-tokenplan": "static"
+      "tencent-tokenhub": "refreshable",
+      "tencent-tokenplan": "refreshable"
     }
   },
   "setup": {
     "providers": [
       {
         "id": "tencent-tokenhub",
-        "envVars": [
-          "TOKENHUB_API_KEY"
-        ]
+        "envVars": ["TOKENHUB_API_KEY"]
       },
       {
         "id": "tencent-tokenplan",
-        "envVars": [
-          "TOKENPLAN_API_KEY"
-        ]
+        "envVars": ["TOKENPLAN_API_KEY"]
       }
     ]
   },
